@@ -35,15 +35,15 @@ RUN find /tmp -type f -delete
 # Build gateway
 FROM buildenv
 
-RUN git clone --depth 1 --branch v4.3.2 https://github.com/TykTechnologies/tyk.git /src && \
-    cd /src && \
-    make build && go clean -modcache
+ARG TYK_VERSION=4.3.2
 
-RUN mkdir /opt/tyk-gateway && \
+RUN git clone --depth 1 --branch v${TYK_VERSION} https://github.com/TykTechnologies/tyk.git /opt/tyk-gateway && \
     cd /opt/tyk-gateway && \
-    cp /src/tyk.conf.example /opt/tyk-gateway/tyk.conf && \
-    cp /src/tyk /opt/tyk-gateway/tyk && \
-    rm -fr /src
+    make build && go clean -modcache
+    
+WORKDIR /opt/tyk-gateway
+
+RUN cp /opt/tyk-gateway/tyk.conf.example /opt/tyk-gateway/tyk.conf
 
 RUN echo "Tyk: $(/opt/tyk-gateway/tyk --version 2>&1)" && \
     echo "Go: $(go version)" && \
