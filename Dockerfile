@@ -35,7 +35,7 @@ RUN find /tmp -type f -delete
 # Build gateway
 FROM buildenv
 
-RUN git clone --depth 1 https://github.com/TykTechnologies/tyk.git /opt/tyk-gateway
+RUN git clone --depth 1 --branch v4.3.2 https://github.com/TykTechnologies/tyk.git /opt/tyk-gateway
 
 RUN cd /opt/tyk-gateway && make build && go clean -modcache
 
