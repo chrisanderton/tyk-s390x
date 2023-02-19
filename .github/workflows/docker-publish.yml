@@ -51,7 +51,6 @@ jobs:
         uses: docker/build-push-action@v4.0.0
         with:
           platforms: linux/s390x
-          context: .
           push: ${{ github.event_name != 'pull_request' }}
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
