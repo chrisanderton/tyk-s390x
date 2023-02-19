@@ -41,8 +41,8 @@ RUN git clone --depth 1 --branch v4.3.2 https://github.com/TykTechnologies/tyk.g
 
 RUN mkdir /opt/tyk-gateway && \
     cd /opt/tyk-gateway && \
-    cp /src/tyk.conf.example tyk.conf && \
-    cp /src/tyk . && \
+    cp /src/tyk.conf.example /opt/tyk-gateway/tyk.conf && \
+    cp /src/tyk /opt/tyk-gateway/tyk && \
     rm -fr /src
 
 RUN echo "Tyk: $(/opt/tyk-gateway/tyk --version 2>&1)" && \
