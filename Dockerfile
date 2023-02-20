@@ -23,11 +23,11 @@ WORKDIR /tmp
 
 ENV PATH=$PATH:/usr/local/go/bin
 
-RUN	tar -C /usr/local -xzf go${GO_VERSION}.linux-s390x.tar.gz && \
-	go version
+RUN tar -C /usr/local -xzf go${GO_VERSION}.linux-s390x.tar.gz && \
+    go version
 
 RUN apt update && apt install build-essential zlib1g-dev libncurses5-dev libgdbm-dev libnss3-dev libssl-dev libsqlite3-dev libreadline-dev libffi-dev curl wget libbz2-dev git -y
-RUN	apt install python3 -y
+RUN apt install python3 -y
 
 # Clean up build assets
 RUN find /tmp -type f -delete
