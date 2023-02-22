@@ -92,10 +92,10 @@ Sign-up for a [Tyk Cloud Demo](https://tyk.io/sign-up/) and get a [hybrid gatewa
 
 ## What's this multi-arch folder?
 
-The original Dockerfile runs compilation in container running in the target architecture (for me in QEMU.. if you have access to hardware you could use remote build contexts). I found this to be a bit buggy on M1 Mac with the buildx process core dumping at random. 
+The root Dockerfile runs compilation in a container running in the target architecture (for me this is emulated in QEMU.. if you have access to hardware you could use remote build contexts). I found this emulation to be a bit buggy on M1 Mac: the buildx process often core dumps at random. 
 
-The multi-arch Dockerfile uses cross-compilation; the binary is compiled in the host architecture and then copied into a base container for the target architecture. This allows for multi-arch builds through buildx.
+The multi-arch Dockerfile uses cross-compilation: the binary is compiled in the host architecture and then copied into a base container for the target architecture. This allows for multi-arch builds through buildx.
 
 ## And one more thing.. IBM Power Servers
 
-Out of my depth but I noticed ppc64le as a supported build target. The multi-arch image is cross compiled to s390x and ppc64le - look at the `multi-` tagged images for these builds. In theory, this might allow Tyk API Gateway to run on IBM Power 7 and Power 9 servers.. I don't have one to test so DYOR.
+Out of my depth... but I noticed ppc64le as a supported build target. The multi-arch image is cross compiled to s390x and ppc64le (these are in ghcr.io as `multi-` tagged images). In theory, this might allow Tyk API Gateway to run on IBM Power 7, Power 8 and Power 9 servers.. I don't have one to test so DYOR.
