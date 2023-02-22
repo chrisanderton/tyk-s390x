@@ -1,4 +1,4 @@
-# tyk-s390x
+# Tyk API Gateway on IBM s390x (and maybe Power Series)
 
 **Experimental:** building s390x Docker image for the Tyk API Gateway. Supports Open Source and Licensed usage.
 
