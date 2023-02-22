@@ -84,12 +84,18 @@ networks:
 
 Or [check the tyk-demo for other examples](https://github.com/TykTechnologies/tyk-demo).
 
-### Tyk configuration
+## Tyk configuration
 
 [Check the tyk-demo for examples](https://github.com/TykTechnologies/tyk-demo).
 
 Sign-up for a [Tyk Cloud Demo](https://tyk.io/sign-up/) and get a [hybrid gateway setup](https://raw.githubusercontent.com/TykTechnologies/tyk-gateway-docker/master/tyk.hybrid.conf) in minutes.
 
-### And one more thing.. IBM Power Servers
+## What's this multi-arch folder?
+
+The original Dockerfile runs compilation in container running in the target architecture (for me in QEMU.. if you have access to hardware you could use remote build contexts). I found this to be a bit buggy on M1 Mac with the buildx process core dumping at random. 
+
+The multi-arch Dockerfile uses cross-compilation; the binary is compiled in the host architecture and then copied into a base container for the target architecture. This allows for multi-arch builds through buildx.
+
+## And one more thing.. IBM Power Servers
 
 Out of my depth but I noticed ppc64le as a supported build target. The multi-arch image is cross compiled to s390x and ppc64le - look at the `multi-` tagged images for these builds. In theory, this might allow Tyk API Gateway to run on IBM Power 7 and Power 9 servers.. I don't have one to test so DYOR.
