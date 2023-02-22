@@ -15,9 +15,9 @@ RUN go mod download -x && go mod verify
 COPY . .
 
 ARG TARGETOS TARGETARCH
-RUN GOOS=$TARGETOS GOARCH=$TARGETARCH go build -tags "coprocess grpc goplugin" -o tyk -v . && go clean -modcache
+RUN GOOS=$TARGETOS GOARCH=$TARGETARCH cd /opt/tyk-gateway/ && go build -tags "coprocess grpc goplugin" -o tyk -v . && go clean -modcache
 
-FROM debian:bullseye
+FROM golang:1.16.15
 RUN apt update && apt install wget curl wget python3 -y 
 
 COPY --from=build /opt/tyk-gateway/ /opt/tyk-gateway/
