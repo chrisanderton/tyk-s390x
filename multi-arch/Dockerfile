@@ -1,3 +1,5 @@
+# ignore for now: work in progress
+
 FROM --platform=$BUILDPLATFORM golang:1.16.15 as deps
 
 ARG TYK_VERSION=4.3.2
