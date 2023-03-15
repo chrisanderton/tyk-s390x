@@ -35,7 +35,7 @@ RUN find /tmp -type f -delete
 # Build gateway
 FROM buildenv
 
-ARG TYK_VERSION=4.3.2
+ARG TYK_VERSION=4.3.3
 
 RUN git clone --depth 1 --branch v${TYK_VERSION} https://github.com/TykTechnologies/tyk.git /opt/tyk-gateway && \
     cd /opt/tyk-gateway && \
