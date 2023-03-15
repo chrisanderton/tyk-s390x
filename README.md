@@ -32,7 +32,7 @@ docker run --platform linux/s390x <image id>
 ## Can I run it locally, without the build, like?
 
 ```
-docker run --platform linux/s390x -it ghcr.io/chrisanderton/tyk-s390x:v4.3.2
+docker run --platform linux/s390x -it ghcr.io/chrisanderton/tyk-s390x:v4.3.3
 ```
 
 ## Configuration
