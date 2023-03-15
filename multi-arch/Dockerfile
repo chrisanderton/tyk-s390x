@@ -2,7 +2,7 @@
 
 FROM --platform=$BUILDPLATFORM golang:1.16.15 as deps
 
-ARG TYK_VERSION=4.3.2
+ARG TYK_VERSION=4.3.3
 
 RUN apt update && apt install wget build-essential zlib1g-dev libncurses5-dev libgdbm-dev libnss3-dev libssl-dev libsqlite3-dev libreadline-dev libffi-dev curl wget libbz2-dev git python3 -y 
 
