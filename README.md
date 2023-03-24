@@ -57,7 +57,7 @@ version: "3.8"
 services:
   tyk:
     hostname: "tyk"
-    image: ghcr.io/chrisanderton/tyk-s390x:v4.3.2
+    image: ghcr.io/chrisanderton/tyk-s390x:v4.3.3
     volumes: 
       - ./tyk.conf:/opt/tyk-gateway/tyk.conf
     ports:
