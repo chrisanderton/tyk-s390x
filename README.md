@@ -92,7 +92,7 @@ Sign-up for a [Tyk Cloud Demo](https://tyk.io/sign-up/) and get a [hybrid gatewa
 
 ## What's this multi-arch folder?
 
-Ignore it for now.. trying cross-compilation and while it built without errors it looks like I have work to do on linking.
+It's a Dockerfile that uses cross-compilation for Go. It also compiles the python packages to allow Python plugins to work.. grpcio uses boringssl by default and this has issues on s390x, so we have to build it against OpenSSL instead. I haven't figured out how to cross-compile for Python so this is emulated if target != build architecture, so it can take some time.
 
 ## And one more thing.. IBM Power Servers
 
